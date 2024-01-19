@@ -21,6 +21,15 @@ def create_optimizer(params):
                               lr=cfg.optim.base_lr,
                               momentum=cfg.optim.momentum,
                               weight_decay=cfg.optim.weight_decay)
+    elif cfg.optim.optimizer == 'adagrad':
+        optimizer = optim.Adagrad(params,
+                              lr=cfg.optim.base_lr,
+                              weight_decay=cfg.optim.weight_decay)
+    elif cfg.optim.optimizer == 'rmsprop':
+        optimizer = optim.RMSprop(params,
+                              lr=cfg.optim.base_lr,
+                              momentum=cfg.optim.momentum,
+                              weight_decay=cfg.optim.weight_decay)
     else:
         raise ValueError('Optimizer {} not supported'.format(
             cfg.optim.optimizer))
