@@ -87,11 +87,11 @@ def get_neuroevolution_instance(
         return 1 / agg_runs(curr_dir, cfg.metric_best)["loss"]
 
     ga_instance = pygad.GA(
-        num_generations=20,
+        num_generations=100,
         num_parents_mating=10,
         fitness_func=fitness_func,
         gene_space={"low": 0, "high": 1},
-        sol_per_pop=20,
+        sol_per_pop=50,
         num_genes=len([x for x in hyperparams_categorical if x is not None])
         + len([x for x in hyperparams_categorical if x is not None]),
         parent_selection_type="rank",

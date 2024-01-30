@@ -64,7 +64,7 @@ def set_cfg(cfg):
     cfg.num_workers = 0
 
     # Max threads used by PyTorch
-    cfg.num_threads = 1
+    cfg.num_threads = 8
 
     # The metric for selecting the best epoch for each run
     cfg.metric_best = "auto"

@@ -2,7 +2,8 @@
 out_dir: results
 dataset:
   format: PyG
-  name: TU_KKI
+  name: TU_PROTEINS
+  # other datasets: Cora, CiteSeer, PubMed, TU_PROTEINS, TU_ENZYMES
   task: link_pred
   task_type: classification
   transductive: True
@@ -12,22 +13,18 @@ dataset:
   augment_feature_repr: position
   augment_label: ''
   augment_label_dims: 0
-  transform: ego
 train:
-  batch_size: 32
   eval_period: 1
   ckpt_period: 100
 model:
   type: gnn
   loss_fun: cross_entropy
-  edge_decoding: dot
   graph_pooling: add
 gnn:
   layers_pre_mp: 1
   layers_mp: 2
   layers_post_mp: 1
   dim_inner: 256
-  layer_type: gatconv
   stage_type: stack
   batchnorm: True
   act: prelu
@@ -35,9 +32,7 @@ gnn:
   agg: add
   normalize_adj: False
 optim:
-  optimizer: adam
-  base_lr: 0.01
-  max_epoch: 3
+  max_epoch: 200
 neuroevolution:
   optimizers: [sgd, rmsprop, adam]
   layer_types: [linear, mlp, gcnconv, sageconv, gatconv, ginconv, generalconv]
