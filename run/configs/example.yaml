@@ -2,7 +2,7 @@
 out_dir: results
 dataset:
   format: PyG
-  name: TU_PROTEINS
+  name: Cora
   # other datasets: Cora, CiteSeer, PubMed, TU_PROTEINS, TU_ENZYMES
   task: link_pred
   task_type: classification
