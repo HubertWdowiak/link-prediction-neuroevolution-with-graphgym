@@ -93,7 +93,7 @@ def get_neuroevolution_instance(
         gene_space={"low": 0, "high": 1},
         sol_per_pop=50,
         num_genes=len([x for x in hyperparams_categorical if x is not None])
-        + len([x for x in hyperparams_categorical if x is not None]),
+        + len([x for x in hyperparams_continuous if x is not None]),
         parent_selection_type="rank",
         crossover_type="two_points",
         mutation_type="adaptive",
